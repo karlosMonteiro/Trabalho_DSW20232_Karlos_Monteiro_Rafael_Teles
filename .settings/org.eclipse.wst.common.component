@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Trabalho_DSW20232_Karlos_Monteiro_Rafael_Teles">
+            
+    
+    <wb-module deploy-name="primeiroHibernateDSW20232">
+                        
+        
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                        
+        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="Trabalho_DSW20232_Karlos_Monteiro_Rafael_Teles"/>
-        <property name="java-output-path" value="/Trabalho_DSW20232_Karlos_Monteiro_Rafael_Teles/build/classes"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/dao"/>
+                        
+        
+        <property name="java-output-path" value="/primeiroHibernateDSW20232/build/classes"/>
+                
+        <property name="context-root" value="primeiroHibernateDSW20232"/>
+                    
+    
     </wb-module>
+        
+
 </project-modules>

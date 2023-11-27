@@ -1,8 +1,9 @@
 package models.entities;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
+import javax.faces.bean.ManagedProperty;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,10 +20,8 @@ import models.enums.TipoLancamento;
 
 @Entity
 @Table(name="lancamentos")
-public class Lancamento implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
+public class Lancamento {
+		
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -39,8 +38,8 @@ public class Lancamento implements Serializable {
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
-	
+	private Date data;	
+
 	
 	public Lancamento(int id, String descricao, double valor, TipoLancamento tipo, Date data) {
 		super();
@@ -50,6 +49,10 @@ public class Lancamento implements Serializable {
 		this.tipo = tipo;
 		this.data = data;
 	}	
+	
+	public Lancamento() {
+		
+	}
 	
 	
 	public Integer getId() {
@@ -76,12 +79,13 @@ public class Lancamento implements Serializable {
 	public void setTipo(TipoLancamento tipo) {
 		this.tipo = tipo;
 	}
+	
+	
 	public Date getData() {
 		return data;
 	}
 	public void setData(Date data) {
 		this.data = data;
 	}
-	
 	
 }

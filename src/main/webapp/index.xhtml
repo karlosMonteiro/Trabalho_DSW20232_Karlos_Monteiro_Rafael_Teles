@@ -11,10 +11,58 @@
 	
 	<h:outputStylesheet library="css" name="styles.css" />
 	
-	<title>APS - Desenvolvimento WEB 2023.2</title>
+	<title>Cadastro</title>
 </h:head>
 <h:body>
+	
+	<p:messages id="messages" showDetail="true" closable="true">
+		<p:autoUpdate />
+	</p:messages>
+	
+	<h:form id="formulario">
 
+		<p:toolbar>
+			<p:toolbarGroup>
+				<p:link outcome="listagem" value="Listas" />
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Descrição" for="descricao"/>
+			<h:panelGroup>
+				<p:inputTextarea rows="5" cols="30"
+					counter="descricao" maxlength="100"
+					value="#{lancamentoBean.lancamento.descricao}"
+					counterTemplate="{0} caracteres."
+					autoResize="false" />
+					<br/>
+					<h:outputText id="descricao" class="block" />
+			</h:panelGroup>
+						
+			<p:outputLabel value="Valor" for="valor"/>
+			<h:panelGroup>
+				<p:inputNumber id="valor" value="#{lancamentoBean.lancamento.valor}" required="true" requiredMessage="Valor obrigatório"/>
+				<p:message for="valor"/>
+			</h:panelGroup>
+						
+			<p:outputLabel value="tipo"/>
+			<p:selectOneRadio value="#{lancamentoBean.lancamento.tipo}">
+				<f:selectItem itemValue="RECEITA" itemLabel="receita"/>
+				<f:selectItem itemValue="DESPESA" itemLabel="despesa"/>
+			</p:selectOneRadio>
+			
+			<p:outputLabel value="Data" />
+			
+			
+			<h:panelGroup>
+				<p:datePicker id="data" value="#{lancamentoBean.lancamento.data}"/>
+				<p:message for="data" />
+			</h:panelGroup>
+			
+			<p:commandButton value="Salvar" action="#{lancamentoBean.create}" update="formulario" />
+			
+		</p:panelGrid>
+	</h:form>
 
 </h:body>
 </html>
